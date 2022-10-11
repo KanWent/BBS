@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.Composition;
 
 using BBS.Interface;
+using BBS.Model.ApiEntiy;
+using BBS.ORM.DBContent;
 
 namespace BBS.Services
 {
@@ -9,5 +11,8 @@ namespace BBS.Services
     public class UserService:IUserService
     {
 
+        public void Test() {
+           
+        }
     }
 }

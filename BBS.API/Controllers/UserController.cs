@@ -13,6 +13,7 @@ namespace BBS.API.Controllers
         [Route("/Login")]
         public string Login()
         {
+            Logger.Info("进入登录接口");
             return ResponCode.Success.ToAck(null);
         }
     }

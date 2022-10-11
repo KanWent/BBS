@@ -3,13 +3,15 @@ using System.ComponentModel.Composition.Hosting;
 
 using BBS.Interface;
 
-namespace BBS.API.MEF.Base
+namespace BBS.Commom.MEF.Base
 {
     [Export]
     public static class InterFaceList
     {
         [ImportMany]
-        public static IEnumerable<Lazy<IUserService, InterfaceDepict>>? IServicesList { get; set; }
+        public static IEnumerable<Lazy<IUserService, InterfaceDepict>>? IUserServicesList { get; set; }
+        [ImportMany]
+        public static IEnumerable<Lazy<IArticleService, InterfaceDepict>>? IArticleServicesList { get; set; }
 
         /// <summary>
         /// MEF初始化依赖注入

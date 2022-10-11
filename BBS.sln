@@ -9,14 +9,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBS.Services", "BBS.Service
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBS.API", "BBS.API\BBS.API.csproj", "{51706901-E4F0-4D88-B781-76FE3565AC2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBS.Model", "BBS.Model\BBS.Model.csproj", "{FD82464D-F23B-4FBB-8FE7-2F0DF427BFA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBS.Model", "BBS.Model\BBS.Model.csproj", "{FD82464D-F23B-4FBB-8FE7-2F0DF427BFA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBS.Common", "BBS.Common\BBS.Common.csproj", "{DF33B6EC-6941-4706-8524-7E31CECC583D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBS.Common", "BBS.Common\BBS.Common.csproj", "{DF33B6EC-6941-4706-8524-7E31CECC583D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{92BBFC4C-F327-4FDA-ADEB-1667D7985382}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBS.ORM", "BBS.ORM\BBS.ORM.csproj", "{04254A20-A0CD-48BB-8496-15AC9FE019DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{DF33B6EC-6941-4706-8524-7E31CECC583D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF33B6EC-6941-4706-8524-7E31CECC583D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF33B6EC-6941-4706-8524-7E31CECC583D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04254A20-A0CD-48BB-8496-15AC9FE019DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04254A20-A0CD-48BB-8496-15AC9FE019DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04254A20-A0CD-48BB-8496-15AC9FE019DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04254A20-A0CD-48BB-8496-15AC9FE019DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

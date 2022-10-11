@@ -1,3 +1,5 @@
+using BBS.Commom.MEF.Base;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,15 +11,19 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// 开发环境配置
 if (app.Environment.IsDevelopment())
 {
    
 }
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseAuthorization();
 
+//注册MEF，实现依赖注入
+InterFaceList.Regisgter();
+
+
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

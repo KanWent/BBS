@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BBS.Common\BBS.Common.csproj" />
     <ProjectReference Include="..\BBS.Interface\BBS.Interface.csproj" />
+    <ProjectReference Include="..\BBS.Model\BBS.Model.csproj" />
+    <ProjectReference Include="..\BBS.ORM\BBS.ORM.csproj" />
   </ItemGroup>
 
 </Project>

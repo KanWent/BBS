@@ -9,9 +9,11 @@
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BBS.Interface\BBS.Interface.csproj" />
     <ProjectReference Include="..\BBS.Model\BBS.Model.csproj" />
   </ItemGroup>
 
