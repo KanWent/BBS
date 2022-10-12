@@ -26,7 +26,6 @@ namespace BBS.Common
             };
             return JsonConvert.SerializeObject(baseResponse);
         }
-
         /// <summary>
         /// 制造返回出参
         /// </summary>
@@ -39,7 +38,7 @@ namespace BBS.Common
             BaseResponse<object> baseResponse = new BaseResponse<object>()
             {
                 code = (int)code,
-                msg = String.Empty,
+                msg = Message,
                 data = o
             };
             return JsonConvert.SerializeObject(baseResponse);
@@ -51,9 +50,9 @@ namespace BBS.Common
         /// <param name="code">返回Code</param>
         /// <param name="Message">返回信息</param>
         /// <returns></returns>
-        public static string ToAck(this ResponCode code, object o  , string Message = "")
+        public static string ToAck(this ResponCode code, object o, string Message = "")
         {
-            
+
             BaseResponse<object> baseResponse = new BaseResponse<object>()
             {
                 code = (int)code,
@@ -62,7 +61,67 @@ namespace BBS.Common
             };
             return JsonConvert.SerializeObject(baseResponse);
         }
+        /// <summary>
+        /// 同名映射
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public static T MapperEntity<T>(this object o)
+        {
+            try
+            {
+                Type old = o.GetType();
+                Type newType = typeof(T);
+                object a = Activator.CreateInstance(newType);   //创建对象
+                var allPrpo = old.GetProperties();
+                var newPrpo = newType.GetProperties();
+                if (allPrpo != null)
+                {
+                    foreach (var item in allPrpo)
+                    {
+                        var pro = newPrpo.Where(x => x.Name.ToUpper() == item.Name.ToUpper()).FirstOrDefault();
+                        if (pro is null )
+                        {
+                            continue;
+                        }
+                        pro.SetValue(a, item.GetValue(o));
+                    }
+                }
+                return (T)a;
+            }
+            catch (Exception)
+            {
+                return default;
+            }
 
+        }
+        /// <summary>
+        /// 序列化JSON
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public static string ToJson(this object o)
+        {
+            return JsonConvert.SerializeObject(o);
+        }
+        /// <summary>
+        /// 反序列化JSON
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public static T Json2Entity<T>(this string o)
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(o);
+            }
+            catch (Exception ex)
+            {
+                return default;
+            }
+        }
 
     }
 }

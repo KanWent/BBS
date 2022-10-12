@@ -2,7 +2,6 @@
 
 using BBS.Interface;
 using BBS.Model.ApiEntiy;
-using BBS.ORM.DBContent;
 
 namespace BBS.Services
 {

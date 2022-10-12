@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -10,7 +10,6 @@
     <ProjectReference Include="..\BBS.Common\BBS.Common.csproj" />
     <ProjectReference Include="..\BBS.Interface\BBS.Interface.csproj" />
     <ProjectReference Include="..\BBS.Model\BBS.Model.csproj" />
-    <ProjectReference Include="..\BBS.ORM\BBS.ORM.csproj" />
   </ItemGroup>
 
 </Project>
