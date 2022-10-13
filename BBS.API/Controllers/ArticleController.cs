@@ -1,11 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
+using System.Web.Http;
 
 using BBS.Commom.MEF.Base;
 using BBS.Common;
 using BBS.Model.Enum;
 
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
+
+using ActionNameAttribute = Microsoft.AspNetCore.Mvc.ActionNameAttribute;
+using FromBodyAttribute = Microsoft.AspNetCore.Mvc.FromBodyAttribute;
+using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace BBS.API.Controllers
 {
@@ -13,7 +20,7 @@ namespace BBS.API.Controllers
     /// 文章相关API
     /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[Action]")]
     public class ArticleController : ControllerBase
     {
 
@@ -30,7 +37,7 @@ namespace BBS.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [Route("/GetALL")]
+        [ActionName("GetALL")]
         public string GetArticleList()
         {
             Logger.Info("进入获取文章列表接口");
@@ -55,7 +62,7 @@ namespace BBS.API.Controllers
                 Logger.Info("List:" + articles.ToJson());
                 return articles.ToAck(Message: ErrMsg);
             }
-            return ((ResponCode)retCode).ToAck(Message: ErrMsg);
+            return ((ResponCode)retCode).ToAck(null,Message: ErrMsg);
 
 
         }
@@ -65,7 +72,7 @@ namespace BBS.API.Controllers
         /// <param name="InJson"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("/Insert")]
+        [ActionName("Insert")]
         public string AddArticle([FromBody] string InJson)
         {
 

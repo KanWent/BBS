@@ -56,7 +56,7 @@ namespace BBS.Common
             BaseResponse<object> baseResponse = new BaseResponse<object>()
             {
                 code = (int)code,
-                msg = String.Empty,
+                msg = Message,
                 data = o
             };
             return JsonConvert.SerializeObject(baseResponse);

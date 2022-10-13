@@ -1,0 +1,29 @@
+{
+  "ReRoutes": [
+    {
+      //Upstream表示上游请求，即客户端请求到API Gateway的请求
+      "UpstreamPathTemplate": "/Service/{url}", //请求路径模板
+      "UpstreamHttpMethod": [ "Get", "Post" ], //请求方法数组
+
+      "UseServiceDiscovery": false, //启用服务发现
+
+      //Downstream表示下游请求，即API Gateway转发的目标服务地址
+      "DownstreamPathTemplate": "/api/{url}", //下游请求地址模板
+      "DownstreamScheme": "http", //请求协议，目前应该是支持http和https
+      //A***************指定单个转发地址
+      "DownstreamHostAndPorts": [ //请求服务地址
+        {
+          "Host": "180.76.107.142",
+          "Port": 9091
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    //"ServiceDiscoveryProvider": {
+    //  "Host": "127.0.0.1",
+    //  "Port": 8500,
+    //  "Type": "PollConsul"
+    //}
+  }
+}

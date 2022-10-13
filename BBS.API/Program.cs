@@ -1,3 +1,6 @@
+using System.Web.Http;
+
+using BBS.API.Controllers;
 using BBS.Commom.MEF.Base;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +16,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -21,27 +25,28 @@ builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(c =>
 {
-    //c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "ManagerAPI", Version = "v1" });
+   // c.SwaggerDoc("v1.1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "BBS.API", Version = "v1.1" });
     //添加文档注释
     var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);//获取应用程序所在目录（绝对，不受工作目录影响，建议采用此方法获取路径）
     var xmlPath = Path.Combine(basePath, "BBS.API.xml");
     c.IncludeXmlComments(xmlPath);
+
 }
 );
+
 
 var app = builder.Build();
 
 // 开发环境配置
 if (app.Environment.IsDevelopment())
 {
-   
+
 }
 app.UseSwagger();
 app.UseSwaggerUI();
 
 //注册MEF，实现依赖注入
 InterFaceList.Regisgter();
-
 
 app.UseAuthorization();
 app.MapControllers();

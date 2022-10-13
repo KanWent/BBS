@@ -5,12 +5,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BBS.API.Controllers
 {
+    /// <summary>
+    /// 用户API
+    /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[Action]")]
     public class UserController : ControllerBase
     {
+        /// <summary>
+        ///  用户登录
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
-        [Route("/Login")]
+        [ActionName("Login")]
         public string Login()
         {
             Logger.Info("进入登录接口");
